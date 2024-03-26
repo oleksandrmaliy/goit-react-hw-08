@@ -1,0 +1,14 @@
+.form {
+  width: 350px;
+  padding: 10px;
+  margin: 20px;
+  border: solid black 1px;
+}
+
+.field {
+  font-style: italic;
+}
+
+.label {
+  margin-bottom: 20px;
+}
