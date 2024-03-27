@@ -1,7 +1,12 @@
 .list {
-  margin: 20px;
+  margin-left: 0;
+  list-style-type: none;
 }
 
 .listItem {
   margin: 10px;
+}
+
+.listButton {
+  margin-left: 10px;
 }
