@@ -1,7 +1,7 @@
-import Form from './Form/Form';
-import ContactsList from './Contacts/Contacts';
-import Filter from './Filter/Filter';
-// import css from './';
+import Form from './components/Form/Form';
+import ContactsList from './components/Contacts/Contacts';
+import Filter from './components/Filter/Filter';
+import './App.css';
 
 const App = () => {
   return (
