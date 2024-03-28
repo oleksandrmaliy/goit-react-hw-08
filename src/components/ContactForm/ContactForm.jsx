@@ -3,7 +3,7 @@ import { addContact, getContacts } from '../../redux/contactsSlice';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
-import css from './Form.module.css';
+import css from './ContactForm.module.css';
 
 const initialValues = {
   name: '',

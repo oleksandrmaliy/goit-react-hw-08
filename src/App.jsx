@@ -1,13 +1,13 @@
-import Form from './components/Form/Form';
-import ContactsList from './components/Contacts/Contacts';
-import Filter from './components/Filter/Filter';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactsList from './components/ContactList/ContactList';
+import SearchBox from './components/SearchBox/SearchBox';
 import './App.css';
 
 const App = () => {
   return (
     <>
-      <Form />
-      <Filter />
+      <ContactForm />
+      <SearchBox />
       <ContactsList />
     </>
   );
