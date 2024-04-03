@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import { getContacts } from '../../redux/contactsSlice';
 import { addContact } from '../../redux/contactsOps';
 import { selectContactsItems } from '../../redux/contactsSlice';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-// import { nanoid } from 'nanoid';
+
 import css from './ContactForm.module.css';
 
 const initialValues = {
@@ -25,14 +24,14 @@ const ContactForm = () => {
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === values.name.toLowerCase()
-      ) === undefined
+      )
     ) {
-      const item = { name: values.name, number: values.number };
-      dispatch(addContact(item));
-      actions.resetForm();
-    } else {
       alert(`${values.name} is already in contacts.`);
+      return;
     }
+    const item = { name: values.name, number: values.number };
+    dispatch(addContact(item));
+    actions.resetForm();
   };
 
   return (
@@ -43,37 +42,19 @@ const ContactForm = () => {
         onSubmit={handleOnSubmit}
         validationSchema={schema}
       >
-        {formikProps => (
-          <Form className={css.form}>
-            <p>Name</p>
-            <Field
-              className={css.field}
-              type="text"
-              name="name"
-              title="Name may contain only letters, apostrophe, dash and spaces."
-              onChange={formikProps.handleChange}
-              onBlur={formikProps.handleBlur}
-              value={formikProps.values.name}
-            />
-            <ErrorMessage name="name">{() => <p>Enter name</p>}</ErrorMessage>
-            <p>Number</p>
-            <Field
-              className={css.field}
-              type="tel"
-              name="number"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses, and can start with +"
-              onChange={formikProps.handleChange}
-              onBlur={formikProps.handleBlur}
-              value={formikProps.values.number}
-            />
-            <ErrorMessage name="number">
-              {() => <p>Phone number must be 7 digits</p>}
-            </ErrorMessage>
-            <button className={css.button} type="submit">
-              Add contact
-            </button>
-          </Form>
-        )}
+        <Form className={css.form}>
+          <p>Name</p>
+          <Field className={css.field} type="text" name="name" />
+          <ErrorMessage name="name">{() => <p>Enter name</p>}</ErrorMessage>
+          <p>Number</p>
+          <Field className={css.field} type="tel" name="number" />
+          <ErrorMessage name="number">
+            {() => <p>Phone number must be 7 digits</p>}
+          </ErrorMessage>
+          <button className={css.button} type="submit">
+            Add contact
+          </button>
+        </Form>
       </Formik>
     </>
   );
