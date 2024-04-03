@@ -3,13 +3,17 @@
 // import { getFilter } from '../../redux/filtersSlice';
 import { useSelector } from 'react-redux';
 import Contact from '../Contact/Contact';
+// import { selectContactsItems } from '../../redux/contactsSlice';
+// import { selectFilterName } from '../../redux/filtersSlice';
+import { selectFilteredContacts } from '../../redux/contactsSlice';
 
 import css from './ContactList.module.css';
 
 const ContactsList = () => {
-  const contacts = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.filter.name);
-  console.log(contacts);
+  const filteredContacts = useSelector(selectFilteredContacts);
+  // const contacts = useSelector(selectContactsItems);
+  // const filter = useSelector(selectFilterName);
+  // console.log(contacts);
   return (
     <ul className={css.list}>
       {/* {filter.length > 0
@@ -31,18 +35,15 @@ const ContactsList = () => {
         //     contact.name.toLowerCase().includes(filter.toLowerCase())
         //   )
         // :
-        contacts
-          .filter(contact =>
-            contact.name.toLowerCase().includes(filter.toLowerCase())
-          )
-          .map(contact => (
-            <Contact
-              name={contact.name}
-              number={contact.number}
-              id={contact.id}
-              key={contact.id}
-            />
-          ))
+        filteredContacts.map(contact => (
+          <Contact
+            contact={contact}
+            // name={contact.name}
+            // number={contact.number}
+            // id={contact.id}
+            key={contact.id}
+          />
+        ))
       }
     </ul>
   );

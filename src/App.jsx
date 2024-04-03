@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from './redux/contactsOps';
+import {
+  selectContactsLoading,
+  selectContactsError,
+} from './redux/contactsSlice';
 
 import ContactForm from './components/ContactForm/ContactForm';
 import ContactsList from './components/ContactList/ContactList';
@@ -9,8 +13,8 @@ import './App.css';
 
 const App = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.contacts.loading);
-  const error = useSelector(state => state.contacts.error);
+  const loading = useSelector(selectContactsLoading);
+  const error = useSelector(selectContactsError);
 
   useEffect(() => {
     dispatch(fetchContacts());

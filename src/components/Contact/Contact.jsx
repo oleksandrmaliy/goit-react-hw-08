@@ -3,17 +3,17 @@ import { deleteContact } from '../../redux/contactsOps';
 
 import css from './Contact.module.css';
 
-const Contact = ({ name, number, id }) => {
+const Contact = ({ contact }) => {
   const dispatch = useDispatch();
   // console.log(contact);
   return (
     <li className={css.listItem}>
-      <span>{name}: </span>
-      <span>{number}</span>
+      <span>{contact.name}: </span>
+      <span>{contact.number}</span>
 
       <button
         className={css.listButton}
-        onClick={() => dispatch(deleteContact(id))}
+        onClick={() => dispatch(deleteContact(contact.id))}
       >
         Delete
       </button>
