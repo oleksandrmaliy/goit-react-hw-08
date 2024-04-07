@@ -4,7 +4,7 @@ import { fetchContacts } from '../redux/contacts/operations';
 import {
   selectContactsLoading,
   selectContactsError,
-} from '../redux/contacts/slice';
+} from '../redux/contacts/selectors';
 
 import ContactForm from './ContactForm/ContactForm';
 import ContactsList from './ContactList/ContactList';
