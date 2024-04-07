@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from './redux/contacts/operations';
+import { fetchContacts } from '../redux/contacts/operations';
 import {
   selectContactsLoading,
   selectContactsError,
-} from './redux/contacts/slice';
+} from '../redux/contacts/slice';
 
-import ContactForm from './components/ContactForm/ContactForm';
-import ContactsList from './components/ContactList/ContactList';
-import SearchBox from './components/SearchBox/SearchBox';
+import ContactForm from './ContactForm/ContactForm';
+import ContactsList from './ContactList/ContactList';
+import SearchBox from './SearchBox/SearchBox';
 import './App.css';
 
 const App = () => {
