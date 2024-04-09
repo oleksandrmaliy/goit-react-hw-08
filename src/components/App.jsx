@@ -1,3 +1,15 @@
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+// import Layout from './Layout/Layout';
+
+// const HomePage = lazy(() => import('../pages/Home'));
+// const RegisterPage = lazy(() => import('../pages/Register'));
+// const LoginPage = lazy(() => import('../pages/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts'));
+
+// import Contacts from '../pages/Contacts';
+
 // import { useEffect } from 'react';
 // import {
 // useDispatch,
@@ -8,8 +20,6 @@
 //   selectContactsLoading,
 //   selectContactsError,
 // } from '../redux/contacts/selectors';
-
-import Contacts from '../pages/Contacts';
 
 // import ContactForm from './ContactForm/ContactForm';
 // import ContactsList from './ContactList/ContactList';
@@ -27,11 +37,18 @@ const App = () => {
 
   return (
     <>
-      <Contacts />
-      {/* <SearchBox />
-      {loading && <p>... Loading</p>}
-      {error && <p>{error}</p>}
-      <ContactsList /> */}
+      {/* <Layout> */}
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<ContactsPage />} />
+          {/* <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/tasks" element={<TasksPage />} /> */}
+        </Routes>
+      </Suspense>
+      <Toaster />
+
+      {/* </Layout> */}
     </>
   );
 };
