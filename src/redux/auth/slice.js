@@ -16,7 +16,7 @@
 // refreshUser - оновлення користувача за токеном. Базовий тип екшену "auth/refresh". Використовується у компоненті App під час його монтування.
 
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, registration } from './operations';
+// import { logIn, logOut, registration } from './operations';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -29,26 +29,25 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
   },
-  extraReducers: builder =>
-    builder
-      .addCase(registration.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
-      .addCase(logIn.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
-      .addCase(logOut.fulfilled, state => {
-        state.user = {
-          name: null,
-          email: null,
-        };
-        state.token = null;
-        state.isLoggedIn = false;
-      }),
+  extraReducers: builder => builder,
+  //   .addCase(registration.fulfilled, (state, action) => {
+  //     state.user = action.payload.user;
+  //     state.token = action.payload.token;
+  //     state.isLoggedIn = true;
+  //   })
+  //   .addCase(logIn.fulfilled, (state, action) => {
+  //     state.user = action.payload.user;
+  //     state.token = action.payload.token;
+  //     state.isLoggedIn = true;
+  //   })
+  //   .addCase(logOut.fulfilled, state => {
+  //     state.user = {
+  //       name: null,
+  //       email: null,
+  //     };
+  //     state.token = null;
+  //     state.isLoggedIn = false;
+  //   }),
 });
 
 export const authReducer = authSlice.reducer;
