@@ -19,8 +19,8 @@ const clearAuthHeader = () => {
  *
  * After successful registration, add the token to the HTTP header
  */
-export const register = createAsyncThunk(
-  'auth/register',
+export const registration = createAsyncThunk(
+  'auth/registration',
   async (userInfo, thunkAPI) => {
     try {
       const response = await axios.post('/users/signup', userInfo);

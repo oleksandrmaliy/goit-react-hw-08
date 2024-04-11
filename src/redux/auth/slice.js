@@ -16,7 +16,7 @@
 // refreshUser - оновлення користувача за токеном. Базовий тип екшену "auth/refresh". Використовується у компоненті App під час його монтування.
 
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, register } from './operations';
+import { logIn, logOut, registration } from './operations';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -27,10 +27,11 @@ const authSlice = createSlice({
     },
     token: null,
     isLoggedIn: false,
+    isRefreshing: false,
   },
   extraReducers: builder =>
     builder
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(registration.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
@@ -50,4 +51,4 @@ const authSlice = createSlice({
       }),
 });
 
-export default authSlice.reducer;
+export const authReducer = authSlice.reducer;
