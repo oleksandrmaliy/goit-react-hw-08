@@ -9,7 +9,6 @@ import {
 import ContactForm from '../components/ContactForm/ContactForm';
 import ContactsList from '../components/ContactList/ContactList';
 import SearchBox from '../components/SearchBox/SearchBox';
-// import './App.css';
 
 const Contacts = () => {
   const dispatch = useDispatch();

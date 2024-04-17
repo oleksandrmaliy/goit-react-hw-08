@@ -4,12 +4,7 @@ import PageTitle from '../components/PageTitle/PageTitle';
 export default function Home() {
   return (
     <div>
-      <PageTitle>
-        Phone Book
-        {/* <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span> */}
-      </PageTitle>
+      <PageTitle>Phone Book</PageTitle>
       <p>
         A telephone directory, commonly called a telephone book, telephone
         address book, phonebook, or the white and yellow pages, is a listing of
