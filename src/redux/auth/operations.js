@@ -1,9 +1,15 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { setAuthHeader, clearAuthHeader } from '../../components/API/API';
+import {
+  setAuthHeader,
+  clearAuthHeader,
+  workingURL,
+} from '../../components/API/API';
 
-export const registration = createAsyncThunk(
-  'auth/registration',
+axios.defaults.baseURL = workingURL;
+
+export const register = createAsyncThunk(
+  'auth/register',
   async (userInfo, thunkAPI) => {
     try {
       const response = await axios.post('/users/signup', userInfo);

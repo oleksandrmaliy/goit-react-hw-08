@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
+import RegisterForm from '../components/RegisterForm/RegisterForm';
 import PageTitle from '../components/PageTitle/PageTitle';
 import { selectAuthLoading, selectAuthError } from '../redux/auth/selectors';
 
@@ -9,7 +9,7 @@ export default function Register() {
   return (
     <div>
       <PageTitle>Register your account</PageTitle>
-      <RegistrationForm />
+      <RegisterForm />
       {loading && <p>... Loading</p>}
       {error && <p>{error}</p>}
     </div>
